@@ -1,0 +1,237 @@
+{% extends 'login/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    body {
+        font-size: 15px;
+        background-color: rgba(250, 235, 215, 0.671);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #myTable {
+        border-collapse: collapse;
+        margin: 1.2em auto;
+        width: 90%;
+        word-wrap: break-word;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+        overflow: scroll;
+        height: auto;
+    }
+
+    .head {
+        background-color: #157fbd;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    td,
+    th {
+        text-align: left;
+        padding-left: 0.2em;
+        overflow: auto;
+        border: 1px solid rgb(134, 134, 132);
+        vertical-align: none;
+    }
+
+    .table td {
+
+        vertical-align: middle;
+    }
+
+    th {
+        background-color: rgb(184, 161, 199)
+    }
+
+    td {
+        padding-bottom: 0.5em;
+    }
+
+    main h1 {
+        text-align: center;
+    }
+
+    @media only screen and (max-width: 760px),
+    (max-device-width: 1024px) {
+
+        /* Force table to not be like tables anymore */
+        thead,
+        tbody,
+        .table,
+        .table-head,
+        .table-data,
+        .table-row {
+            display: block;
+        }
+
+    }
+
+    .role {
+
+        padding: 5px;
+        padding-left: 10px;
+    }
+
+    #myInput {
+
+        background-position: 10px 12px;
+        /* Position the search icon */
+        background-repeat: no-repeat;
+        /* Do not repeat the icon image */
+        width: 100%;
+        /* Full-width */
+        font-size: 16px;
+        /* Increase font-size */
+        padding: 12px 20px 12px 40px;
+        /* Add some padding */
+        border: 1px solid #ddd;
+        /* Add a grey border */
+        margin-bottom: 12px;
+        /* Add some space below the input */
+    }
+
+    main {
+        display: flex;
+        padding: 20px;
+    }
+
+    .btn {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+
+    #table-scroll {
+        height: 650px;
+        overflow: auto;
+        margin-top: 20px;
+    }
+</style>
+<div class="shop"> <br>
+    <input type="text" id="myInput" onkeyup="search()" placeholder="Search for shop's names..">
+    <div class="functionUser" id="table-scroll">
+        <table class="table comment" id="myTable">
+            <thead>
+                <tr class="table-row">
+                    <th class="head">Shop's ID
+
+                    </th>
+                    <th class="head">Shop's Name
+
+                    </th>
+                    <th class="head">User's Name</th>
+                    <th class="head">Role</th>
+                    <th class="head">Info of Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in results %}
+
+                <tr class="table-row" id="{{i}}">
+                    <td>{{i.0}}</td>
+                    <td>{{i.1}}</td>
+                    <td>
+                        <!-- <input id="ferranMessage" type="checkbox" class="delete_checkbox" onClick="onToggle()"> -->
+                        <button class="btn" onClick="onToggle();" id="{{i}}">More</button>
+                        {{i.2}}
+                    </td>
+                    <td id="function_U">
+                        {{i.3}}</td>
+                    <td class="table-head" colspan="{{results.list|length}}" id="{{i}}">
+                        <div class="role"><input type="checkbox" id="mycheckbox1">Pos</div>
+                        <div class="role"><input type="checkbox" id="mycheckbox2">Host Collection</div>
+                        <div class="role"><input type="checkbox" id="mycheckbox3">Chat</div>
+                        <div class="role"><input type="checkbox" id="mycheckbox4">Livestream</div>
+                        <div class="role"><input type="checkbox" id="mycheckbox5">Social Management</div>
+                        <div class="role"><input type="checkbox" id="mycheckbox6">Agency System</div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- <form action="" method="post"> 
+<div class="users">
+    <table class="table comments" id="myTable">
+        <thead>
+            <tr class="table-row">
+                <th class="table-head">Shop's name</th>
+                <th class="table-head">User's name</th>
+                <th class="table-head" rowspan="6" colspan="5" id="role">
+                    <div class="role"><input type="checkbox"> Disable</div>
+                    <div class="role"><input type="checkbox">All</div>
+                    <div class="role"><input type="checkbox">Pos</div>
+                    <div class="role"><input type="checkbox">Host Collection</div>
+                    <div class="role"><input type="checkbox">Chat</div>
+                    <div class="role"><input type="checkbox">Livestream</div>
+                    <div class="role"><input type="checkbox">Social Management</div>
+                    <div class="role"><input type="checkbox">Agency System</div>
+                    </td>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr class="table-row">
+                <td class="table-data">Giay</td>
+                <td class="table-data" onclick="checklist()">
+                    <input id="ferranMessage" type="checkbox" class="delete_checkbox">
+                    <label for="ferranMessage" class="name">Ngoc</label>
+                </td>
+            </tr>
+
+            <tr class="table-row">
+                <td class="table-data">Quan Ao</td>
+                <td class="table-data">
+                    <input id="ferranMessage" type="checkbox" class="delete_checkbox">
+                    <label for="ferranMessage" class="name">Ngoc</label>
+                </td>
+            </tr>
+
+            <tr class="table-row">
+                <td class="table-data">Balo</td>
+                <td class="table-data">
+                    <input id="ferranMessage" type="checkbox" class="delete_checkbox">
+                    <label for="ferranMessage" class="name">Ngoc</label>
+                </td>
+            </tr>
+
+            <tr class="table-row">
+                <td class="table-data">giay</td>
+                <td class="table-data">
+                    <input id="ferranMessage" type="checkbox" class="delete_checkbox">
+                    <label for="ferranMessage" class="name">Bao</label>
+                </td>
+            </tr>
+
+            <tr class="table-row">
+                <td class="table-data">Balo</td>
+                <td class="table-data">
+                    <input id="ferranMessage" type="checkbox" class="delete_checkbox">
+                    <label for="ferranMessage" class="name">Kieu</label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+</form> -->
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% load static %}
+
+
+<style>
+    .hello-msg {
+        font-size: 18px;
+        color: rgb(19, 18, 18);
+        margin-right: 20px;
+    }
+
+    .logout {
+
+        background-image: url("{% static 'img/background2.jpg' %}");
+        background-size: cover;
+        margin: 0;
+        background-repeat: no-repeat;
+        height: 100%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+</style>
+
+<div class="logout">
+    <span class="hello-msg">Hello, {{request.user}}</span>
+    <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+</div>

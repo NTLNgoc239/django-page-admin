@@ -1,0 +1,140 @@
+{% extends 'login/main.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .form-group {
+        display: flex;
+        margin-right: 0
+    }
+
+    input {
+        font-family: Roboto, Arial, sans-serif;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    th {
+        background-color: rgb(184, 161, 199)
+    }
+
+    h4,
+    input {
+        display: inline;
+    }
+
+    h5 {
+        font-weight: bold;
+        font-family: Roboto, Arial, sans-serif;
+    }
+
+    input {
+        float: right;
+
+    }
+
+    input:hover {
+        border: 1px solid transparent;
+        box-shadow: 0 0 6px 0 #ca6505;
+        color: #173547;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100% !important;
+        height: auto;
+    }
+
+    tr {
+        border: solid;
+        border-width: 1px 0;
+    }
+
+    .card-body {
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        padding: 1.25rem;
+        height: auto;
+        overflow: scroll;
+        box-shadow: 0 0 25px 0 #1c87c9;
+    }
+
+    input[text] {
+        color: #ca6505;
+    }
+
+    #table-wrapper {
+        position: relative;
+    }
+
+    #table-scroll {
+        height: 650px;
+        overflow: auto;
+        margin-top: 20px;
+    }
+
+    #table-wrapper table {
+        width: 100%;
+    }
+
+    .container-fluid {
+        background-color: #f8f8f8be;
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding-top: 0px;
+        margin-left: 250px;
+        width: auto;
+        height: 100%;
+    }
+
+    h4 {
+        font-weight: bold;
+    }
+
+    .row {
+
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+</style>
+<div class="row">
+    <div class="col-md" id="table-wrapper">
+        <h4>Stores</h4>
+        <input type="text" id="myInput" onkeyup="search()" placeholder="Search..">
+        <hr>
+        <div class="card card-body" id="table-scroll">
+            <table class="ui striped table" id="store">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Alias</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Avatar_Image</th>
+                    <th>Created_at</th>
+                    <th>Updated_at</th>
+                </tr>
+
+                {% for i in stores %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.alias}}</td>
+                    <td>{{i.phone}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.avatar_image}}</td>
+                    <td>{{i.date_created}}</td>
+                    <td>{{i.date_updated}}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}

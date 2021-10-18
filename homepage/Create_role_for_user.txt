@@ -1,0 +1,4 @@
+-- Create table results
+SELECT t1.name, t3.name, t4.role FROM hc_shop as t1 
+LEFT JOIN (hc_users_of_shop as t2 CROSS JOIN users as t3 CROSS JOIN hc_role_login as t4)
+ON (t2.cid_shop = t1.id AND t3.id = t2.cid_user AND t4.user_id = t2.cid_user);

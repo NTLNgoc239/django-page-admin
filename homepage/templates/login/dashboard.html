@@ -1,0 +1,101 @@
+{% extends 'login/main.html' %}
+
+{% block content %}
+
+{% include 'login/status.html' %}
+{% load static %}
+<style>
+    .row {
+        background-color: #aed7f9;
+        display: flex;
+    }
+
+    h5 {
+        color: rgb(54, 11, 94);
+        font-weight: bold;
+    }
+
+    .button,
+    h5 {
+        display: inline;
+    }
+
+    .button {
+        float: right;
+    }
+
+
+    th {
+        background-color: rgb(184, 161, 199)
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    tr {
+        border: solid;
+        border-width: 1px 0;
+    }
+
+    .navbar-row {
+        background: white;
+        right: 0px;
+    }
+
+    #table-wrapper {
+        position: relative;
+    }
+
+    #table-scroll {
+        height: 600px;
+        overflow: auto;
+        margin-top: 20px;
+    }
+
+    #table-wrapper table {
+        width: 100%;
+    }
+</style>
+<div class="row">
+    <div class="col-md">
+        <h5>LIST STORES</h5>
+        <hr>
+        <div class="card card-body" id="table-wrapper">
+            <div id="table-scroll">
+                <table class="ui striped table">
+                    <tr class="collum">
+
+                        <th class="text">Store</th>
+                        <th class="text">Images</th>
+                        <th class="text">Date Create</th>
+                        <th class="text">Data Update</th>
+                        <th class="text">Update</th>
+                        <th class="text">Remove</th>
+                    </tr>
+
+                    {% for store in stores %}
+                    <tr>
+                        <td>{{store.name}}</td>
+                        <td>{{store.avatar_image}}</td>
+                        <td>{{store.date_created}}</td>
+                        <td>{{store.date_updated}}</td>
+                        <td><a class="btn btn-sm btn-info" href="{% url 'update_order' store.id %}">Update</a></td>
+
+                        <td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' store.id %}">Delete</a></td>
+
+
+                    </tr>
+                    {% endfor %}
+
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
