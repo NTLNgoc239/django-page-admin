@@ -19,8 +19,9 @@
 								<th class="text">Status</th>
 								<th class="text">Date create</th>
 								<th class="text">Data update</th>
-								<th class="text">Update</th>
-								<th class="text">Remove</th>
+								<th class="text">Detail</th>
+								<th class="text">Approve</th>
+								<th class="text">Disable</th>
 							</tr>
 
 							{% for shop in shops %}
@@ -32,12 +33,22 @@
 									>
 								</td>
 								<td>{{shop.name}}</td>
-								<td></td>
-								<td>{{shop.created_at}}</td>
-								<td>{{shop.updated_at}}</td>
-								<td><a class="btn btn-sm btn-info" href="">Update</a></td>
-
-								<td><a class="btn btn-sm btn-danger" href="">Delete</a></td>
+								<td>
+									{% if shop.status == 1 %}
+										<span class="badge bg-success">Active</span>
+									{% elif shop.status == 2 %}
+										<span class="badge bg-danger">Disable</span>
+									{% elif shop.status == 3 %}
+										<span class="badge bg-warning">Pending</span>
+									{% elif shop.status == 4 %}
+										<span class="badge bg-info">Lack info</span>
+									{% endif %}
+								</td>
+								<td>{{shop.created_at|date:"Y-m-d H:m:s"}}</td>
+								<td>{{shop.updated_at|date:"Y-m-d H:m:s"}}</td>
+								<td><a class="btn btn-sm btn-secondary" href="">Detail</a></td>
+								<td><a class="btn btn-sm btn-info" href="">Approve</a></td>
+								<td><a class="btn btn-sm btn-danger" href="">Disble</a></td>
 							</tr>
 							{% endfor %}
 
