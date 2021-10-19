@@ -1,0 +1,77 @@
+/* line 1, home/static/scss/sidebar.scss */
+.sidebar-wrap {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); }
+
+/* line 6, home/static/scss/sidebar.scss */
+.logo img {
+  max-width: 80%; }
+
+/* line 10, home/static/scss/sidebar.scss */
+.sidebar-content {
+  height: 100vh; }
+
+/* line 1, home/static/scss/header.scss */
+header {
+  background-color: #666666;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5); }
+
+/* line 1, home/static/scss/base.scss */
+.wrapper {
+  display: flex; }
+
+/* line 5, home/static/scss/base.scss */
+.left {
+  width: 20vw; }
+
+/* line 9, home/static/scss/base.scss */
+.right {
+  width: 80vw; }
+
+/* line 13, home/static/scss/base.scss */
+.content {
+  padding: 10px; }
+
+/* line 1, home/static/scss/shop.scss */
+.shop-list {
+  padding: 10px; }
+  /* line 3, home/static/scss/shop.scss */
+  .shop-list .row {
+    padding: 10px;
+    background-color: #aed7f9;
+    display: flex; }
+  /* line 9, home/static/scss/shop.scss */
+  .shop-list h5 {
+    color: #360b5e;
+    font-weight: bold; }
+  /* line 14, home/static/scss/shop.scss */
+  .shop-list .button,
+  .shop-list h5 {
+    display: inline; }
+  /* line 19, home/static/scss/shop.scss */
+  .shop-list .button {
+    float: right; }
+  /* line 24, home/static/scss/shop.scss */
+  .shop-list th {
+    background-color: #b8a1c7; }
+  /* line 28, home/static/scss/shop.scss */
+  .shop-list table {
+    border-collapse: collapse; }
+  /* line 32, home/static/scss/shop.scss */
+  .shop-list tr {
+    border: solid;
+    border-width: 1px 0; }
+  /* line 37, home/static/scss/shop.scss */
+  .shop-list .navbar-row {
+    background: white;
+    right: 0px; }
+  /* line 42, home/static/scss/shop.scss */
+  .shop-list #table-wrapper {
+    position: relative; }
+  /* line 46, home/static/scss/shop.scss */
+  .shop-list #table-scroll {
+    height: 600px;
+    overflow: auto;
+    margin-top: 20px; }
+  /* line 52, home/static/scss/shop.scss */
+  .shop-list #table-wrapper table {
+    width: 100%; }
