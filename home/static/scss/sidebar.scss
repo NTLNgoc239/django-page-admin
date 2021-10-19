@@ -1,12 +1,17 @@
 .sidebar-wrap {
-	box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-	img {
-		max-width: 80%;
-	}
+  img {
+    max-width: 80%;
+  }
 }
 .sidebar-content {
-	height: 100vh;
+  height: 100vh;
+}
+i {
+  position: absolute;
+  margin: 0;
+  display: flex;
 }

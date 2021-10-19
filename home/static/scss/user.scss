@@ -1,0 +1,69 @@
+.list_user {
+  padding: 10px;
+  .row {
+    padding: 10px;
+    background-color: #aed7f9;
+    display: flex;
+    border-radius: 3px;
+  }
+
+  h5 {
+    color: rgb(54, 11, 94);
+    font-weight: bold;
+  }
+
+  button,
+  h5 {
+    display: inline;
+  }
+
+  button {
+    float: right;
+  }
+
+  th {
+    background-color: rgb(174, 140, 196);
+    border: 1px solid #ccc;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  tr {
+    border: 0 0 1px 0 solid #ccc;
+  }
+  td {
+    border: 0.5px solid #ccc;
+  }
+
+  .navbar-row {
+    background: white;
+    right: 0px;
+  }
+
+  #table-wrapper {
+    position: relative;
+  }
+
+  #table-scroll {
+    height: 600px;
+    overflow: auto;
+    margin-top: 20px;
+  }
+
+  #table-wrapper table {
+    width: 100%;
+  }
+  .btn {
+    color: #000;
+    background-color: #0dcaf0;
+    border-color: #0dcaf0;
+  }
+  .avatar-shop {
+    img {
+      max-width: 50px;
+      border-radius: 5px;
+    }
+  }
+}
