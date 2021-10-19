@@ -5,38 +5,46 @@
 {% block title %} Home page {% endblock %}
 
 {% block contents %}
-	<div class="row">
-		<div class="col-md">
-			<h5>LIST SHOP</h5>
-			<hr>
-			<div class="card card-body" id="table-wrapper">
-				<div id="table-scroll">
-					<table class="ui striped table">
-						<tr class="collum">
+	<div class="shop-list">
+		<div class="row">
+			<div class="col-md">
+				<h5>LIST SHOP</h5>
+				<hr>
+				<div class="card card-body" id="table-wrapper">
+					<div id="table-scroll">
+						<table class="ui striped table">
+							<tr class="collum">
+								<th class="text">Images</th>
+								<th class="text">Name</th>
+								<th class="text">Status</th>
+								<th class="text">Date create</th>
+								<th class="text">Data update</th>
+								<th class="text">Update</th>
+								<th class="text">Remove</th>
+							</tr>
 
-							<th class="text">Store</th>
-							<th class="text">Images</th>
-							<th class="text">Date Create</th>
-							<th class="text">Data Update</th>
-							{% comment %} <th class="text">Update</th>
-							<th class="text">Remove</th> {% endcomment %}
-						</tr>
+							{% for shop in shops %}
+							<tr>
+								<td class="avatar-shop">
+									<img 
+										src="{% if shop.avatar_image %}{{ server_image }}/shop/logo/small/{{shop.avatar_image}}{% else %}{% static 'images/shop-default.png' %}{% endif %}" 
+										alt=""
+									>
+								</td>
+								<td>{{shop.name}}</td>
+								<td></td>
+								<td>{{shop.created_at}}</td>
+								<td>{{shop.updated_at}}</td>
+								<td><a class="btn btn-sm btn-info" href="">Update</a></td>
 
-						{% for shop in shops %}
-						<tr>
-							<td>{{shop.name}}</td>
-							<td>{{shop.avatar_image}}</td>
-							<td>{{shop.created_at}}</td>
-							<td>{{shop.updated_at}}</td>
-							{% comment %} <td><a class="btn btn-sm btn-info" href="{% url 'update_order' shop.id %}">Update</a></td>
+								<td><a class="btn btn-sm btn-danger" href="">Delete</a></td>
+							</tr>
+							{% endfor %}
 
-							<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' shop.id %}">Delete</a></td> {% endcomment %}
-						</tr>
-						{% endfor %}
+						</table>
+					</div>
 
-					</table>
 				</div>
-
 			</div>
 		</div>
 	</div>
