@@ -1,11 +1,22 @@
 #!/usr/bin/env python3
 """Django's command-line utility for administrative tasks."""
 import os
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "PythonWeb.settings")
 import sys
+import sass
+from django_libsass import SassCompiler
+from django.templatetags.static import static
+
+import django
+
+django.setup()
+
+from django.core.management import call_command
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'PythonWeb.settings')
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "PythonWeb.settings")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -17,5 +28,5 @@ def main():
     execute_from_command_line(sys.argv)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

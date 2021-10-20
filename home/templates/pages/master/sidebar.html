@@ -1,42 +1,54 @@
 {% load static %}
 
-{% block  sidebar %}
-	<div class="sidebar-wrap d-flex flex-column flex-shrink-0 p-2 bg-light" style="width: 100%;">
-    <a href="/" class="logo d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none justify-content-center" style="width: 100%">
-			<img src={% static "images/logo.png" %}>
-    </a>
-    <hr>
-    <ul class="sidebar-content nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <a href="#" class="nav-link active" aria-current="page">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-          Home
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link link-dark">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-          Dashboard
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link link-dark">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-          Orders
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link link-dark">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-          Products
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link link-dark">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-          Customers
-        </a>
-      </li>
-    </ul>
-  </div>
+{% block sidebar %}
+<div class="sidebar-wrap d-flex flex-column flex-shrink-0 p-2 bg-light" style="width: 100%;">
+	<a href="/"
+		class="logo d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none justify-content-center"
+		style="width: 100%">
+		<img src={% static "images/logo.png" %}>
+	</a>
+	<hr>
+	<ul class="sidebar-content nav nav-pills flex-column mb-auto">
+		<li class="nav-item"><i class="fas fa-home"></i>
+			<a href="{% url 'home' %}" class="nav-link active" aria-current="page">
+				<svg class="bi me-2" width="16" height="16">
+					<use xlink:href="#home" />
+				</svg>
+				Home
+			</a>
+		</li>
+		<li><i class="fas fa-stream"></i>
+			<a href="#" class="nav-link link-dark">
+				<svg class="bi me-2" width="16" height="16">
+					<use xlink:href="#speedometer2" />
+				</svg>
+				Shop
+			</a>
+		</li>
+		<li><i class="fas fa-user"></i>
+			<a href="{% url 'function_user' %}" class="nav-link link-dark">
+				<svg class="bi me-2" width="16" height="16">
+					<use xlink:href="#table" />
+				</svg>
+				User
+			</a>
+		</li>
+		<li><i class="fas fa-address-book"></i>
+			<a href="#" class="nav-link link-dark">
+				<svg class="bi me-2" width="16" height="16">
+					<use xlink:href="#grid" />
+				</svg>
+				Products
+			</a>
+		</li>
+		<li><i class="fas fa-sliders-h"></i>
+			<a href="#" class="nav-link link-dark">
+				<svg class="bi me-2" width="16" height="16">
+					<use xlink:href="#people-circle" />
+				</svg>
+				Customers
+			</a>
+		</li>
+	</ul>
+</div>
 {% endblock %}
