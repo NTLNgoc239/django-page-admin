@@ -5,6 +5,7 @@
 // 	});
 // });
 
+//Function_of_User
 function Search() {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
@@ -27,15 +28,12 @@ function Search() {
   }
 }
 
+//Role login
 function onToggle() {
   var rowId = event.target.parentNode.parentNode.id;
-  // console.log(rowId);
-  // console.log(typeof "rowId");
-  //this gives id of tr whose button was clicked
+  console.log(rowId);
   var data = document.getElementById(rowId).querySelectorAll("#function_U");
-  // console.log(data);
   var tokenAmount = document.getElementById(rowId).querySelectorAll(".btn");
-  // console.log(tokenAmount);
   var role = document
     .getElementById(rowId)
     .querySelectorAll(".table-head")[0].id;
@@ -52,14 +50,9 @@ function onToggle() {
   console.log(doc6);
   var doc7 = document.getElementById(rowId).querySelectorAll("#mycheckbox6")[0];
   console.log(doc7);
-  // var checkbox1 = document
-  //   .getElementById(rowId)
-  //   .querySelectorAll("#mycheckbox1{{i}}");
-  // console.log(checkbox1);
   var doc1 = document.getElementById("mycheckbox1");
   console.log(doc1);
   tokenAmount = data[0].innerHTML;
-  // console.log(tokenAmount);
   if (
     doc2.checked == true ||
     doc3.checked == true ||
@@ -159,3 +152,31 @@ $(document).ready(function () {
     htmlbodyHeightUpdate();
   });
 });
+
+//active_user
+function active_user() {
+  var rowId = event.target.parentNode.parentNode.id;
+  console.log(rowId);
+  var data = document.getElementById(rowId).querySelectorAll(".badge")[0];
+  console.log(data);
+  var text = document
+    .getElementById(rowId)
+    .querySelectorAll("#active_U").className;
+  console.log(text);
+  var tokenAmount = document
+    .getElementById(rowId)
+    .querySelectorAll(".btn-info");
+  console.log(tokenAmount);
+  var status = document.getElementById(rowId).querySelectorAll(".btn-info")[0];
+  console.log(status);
+  // var role = document.getElementById(rowId).querySelectorAll(".badge");
+  // console.log(role);
+  tokenAmount = data.innerHTML;
+  console.log(tokenAmount);
+  if (tokenAmount == "Active") {
+    status.style.background = "gray";
+  } else {
+    data.setText("Active");
+    console.log(data);
+  }
+}

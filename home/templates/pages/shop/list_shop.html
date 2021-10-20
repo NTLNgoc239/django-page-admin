@@ -1,63 +1,60 @@
-
 {% extends 'pages/base.html' %}
 {% load static %}
 
 {% block title %} Home page {% endblock %}
 
 {% block contents %}
-	<div class="shop-list">
-		<div class="row">
-			<div class="col-md">
-				<h5>LIST SHOP</h5>
-				<hr>
-				<div class="card card-body" id="table-wrapper">
-					<div id="table-scroll">
-						<table class="ui striped table">
-							<tr class="collum">
-								<th class="text">Images</th>
-								<th class="text">Name</th>
-								<th class="text">Status</th>
-								<th class="text">Date create</th>
-								<th class="text">Data update</th>
-								<th class="text">Detail</th>
-								<th class="text">Approve</th>
-								<th class="text">Disable</th>
-							</tr>
+<div class="shop-list">
+	<div class="row">
+		<div class="col-md">
+			<h5>LIST SHOP</h5>
+			<hr>
+			<div class="card card-body" id="table-wrapper">
+				<div id="table-scroll">
+					<table class="ui striped table">
+						<tr class="collum">
+							<th class="text">Images</th>
+							<th class="text">Name</th>
+							<th class="text">Status</th>
+							<th class="text">Date create</th>
+							<th class="text">Data update</th>
+							<th class="text">Detail</th>
+							<th class="text">Approve</th>
+							<th class="text">Disable</th>
+						</tr>
 
-							{% for shop in shops %}
-							<tr>
-								<td class="avatar-shop">
-									<img 
-										src="{% if shop.avatar_image %}{{ server_image }}/shop/logo/small/{{shop.avatar_image}}{% else %}{% static 'images/shop-default.png' %}{% endif %}" 
-										alt=""
-									>
-								</td>
-								<td>{{shop.name}}</td>
-								<td>
-									{% if shop.status == 1 %}
-										<span class="badge bg-success">Active</span>
-									{% elif shop.status == 2 %}
-										<span class="badge bg-danger">Disable</span>
-									{% elif shop.status == 3 %}
-										<span class="badge bg-warning">Pending</span>
-									{% elif shop.status == 4 %}
-										<span class="badge bg-info">Lack info</span>
-									{% endif %}
-								</td>
-								<td>{{shop.created_at|date:"Y-m-d H:m:s"}}</td>
-								<td>{{shop.updated_at|date:"Y-m-d H:m:s"}}</td>
-								<td><a class="btn btn-sm btn-secondary" href="">Detail</a></td>
-								<td><a class="btn btn-sm btn-info" href="" idx={{shop.id}}>Approve</a></td>
-								<td><a class="btn btn-sm btn-danger" href="">Disble</a></td>
-							</tr>
-							{% endfor %}
+						{% for shop in shops %}
+						<tr class="table-row" id="{{shop}}">
+							<td class="avatar-shop" d="{{shop}}">
+								<img
+									src="{% if shop.avatar_image %}{{ server_image }}/shop/logo/small/{{shop.avatar_image}}{% else %}{% static 'images/shop-default.png' %}{% endif %}">
+							</td>
+							<td>{{shop.name}}</td>
+							<td id="active_U">
+								{% if shop.status == 1 %}
+								<span class="badge bg-success">Active</span>
+								{% elif shop.status == 2 %}
+								<span class="badge bg-danger">Disable</span>
+								{% elif shop.status == 3 %}
+								<span class="badge bg-warning">Pending</span>
+								{% elif shop.status == 4 %}
+								<span class="badge bg-info">Lack info</span>
+								{% endif %}
+							</td>
+							<td>{{shop.created_at|date:"Y-m-d H:m:s"}}</td>
+							<td>{{shop.updated_at|date:"Y-m-d H:m:s"}}</td>
+							<td><a class="btn btn-sm btn-secondary" href="">Detail</a></td>
+							<td><a class="btn btn-sm btn-info" idx={{shop.id}} onClick="active_user();">Approve</a>
+							</td>
+							<td><a class="btn btn-sm btn-danger" href="">Disble</a></td>
+						</tr>
+						{% endfor %}
 
-						</table>
-					</div>
-
+					</table>
 				</div>
+
 			</div>
 		</div>
 	</div>
+</div>
 {% endblock %}
-
