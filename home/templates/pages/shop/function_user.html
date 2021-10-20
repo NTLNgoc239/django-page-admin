@@ -8,7 +8,9 @@
 		<div class="col-md">
 			<h5>FUNCTIONS OF USER</h5>
 			<hr>
-			<input type="text" id="myInput" onkeyup="search()" placeholder="Search for shop's names..">
+			<input type="text" class="form-control" id="searchArticles" onkeyup="Search()"
+				placeholder="&#xf54e;Search shop's name..">
+			<br>
 			<div class="card card-body" id="table-wrapper">
 				<div id="table-scroll">
 					<table class="ui striped table" id="myTable">
@@ -31,10 +33,9 @@
 
 							<tr class="table-row" id="{{i}}">
 								<td class="avatar-shop">
-									<img 
-										src="{% if shop.avatar_image %}{{ server_image }}/shop/logo/small/{{shop.avatar_image}}{% else %}{% static 'images/shop-default.png' %}{% endif %}" 
-										alt=""
-									>
+									<img
+										src="{% if shop.avatar_image %}{{ server_image }}/shop/logo/small/{{shop.avatar_image}}{% else %}{% static 'images/shop-default.png' %}{% endif %}"
+										alt="">
 								</td>
 								<td>{{i.0}}</td>
 								<td>{{i.1}}</td>
