@@ -32,13 +32,13 @@
 							<td>{{shop.name}}</td>
 							<td id="active_U">
 								{% if shop.status == 1 %}
-								<span class="badge bg-success">Active</span>
+								<span class="badge" style="background:green">Active</span>
 								{% elif shop.status == 2 %}
-								<span class="badge bg-danger">Disable</span>
+								<span class="badge" style="background:rgb(220,53,69)">Disable</span>
 								{% elif shop.status == 3 %}
-								<span class="badge bg-warning">Pending</span>
+								<span class="badge" style="background:rgb(255,193,7)">Pending</span>
 								{% elif shop.status == 4 %}
-								<span class="badge bg-info">Lack info</span>
+								<span class="badge" style="background:#0dcaf0">Lack info</span>
 								{% endif %}
 							</td>
 							<td>{{shop.created_at|date:"Y-m-d H:m:s"}}</td>

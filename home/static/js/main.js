@@ -156,27 +156,21 @@ $(document).ready(function () {
 //active_user
 function active_user() {
   var rowId = event.target.parentNode.parentNode.id;
-  console.log(rowId);
-  var data = document.getElementById(rowId).querySelectorAll(".badge")[0];
-  console.log(data);
+  var data = document.getElementById(rowId).querySelectorAll(".badge");
   var text = document
     .getElementById(rowId)
-    .querySelectorAll("#active_U").className;
-  console.log(text);
-  var tokenAmount = document
+    .querySelectorAll("#active_U")[0]
+    .querySelector(".badge");
+  var data_btn = document.getElementById(rowId).querySelectorAll(".btn-info");
+  var style_btn = document
     .getElementById(rowId)
-    .querySelectorAll(".btn-info");
+    .querySelectorAll(".btn-info")[0];
+  data_btn = data[0].innerHTML;
   console.log(tokenAmount);
-  var status = document.getElementById(rowId).querySelectorAll(".btn-info")[0];
-  console.log(status);
-  // var role = document.getElementById(rowId).querySelectorAll(".badge");
-  // console.log(role);
-  tokenAmount = data.innerHTML;
-  console.log(tokenAmount);
-  if (tokenAmount == "Active") {
-    status.style.background = "gray";
+  if (data_btn == "Active") {
+    style_btn.style.background = "gray";
   } else {
-    data.setText("Active");
-    console.log(data);
+    data[0].innerHTML = "Active";
+    text.setAttribute("style", "background: green;");
   }
 }
