@@ -11,13 +11,14 @@ from django.contrib.auth.models import User
 #     status = models.CharField(max_length=12,unique=True)
 #     USERNAME_FIELD = 'status'
 
+
 class Shop(models.Model):
     name = models.CharField(max_length=200, null=False)
     alias = models.CharField(max_length=200, null=True)
-    cid_location = models.IntegerField(null=True)
+    cid_location = models.IntegerField(max_length=200, null=True)
     job_name = models.CharField(max_length=200, null=True)
     cid_user = models.CharField(max_length=200, null=True)
-    cid_career = models.IntegerField(null=True)
+    cid_career = models.IntegerField(max_length=200, null=True)
     phone = models.CharField(max_length=100, null=True)
     email = models.CharField(max_length=200, null=True)
     address = models.CharField(max_length=200, null=True)
@@ -38,15 +39,110 @@ class Shop(models.Model):
     slider = models.TextField(max_length=100, null=True)
     system = models.CharField(max_length=200, null=True)
     hp = models.CharField(max_length=200, null=True)
-    ranking_host = models.SmallIntegerField(null=True)
-    pos_active = models.SmallIntegerField(null=True)
-    status = models.SmallIntegerField(null=True)
+    ranking_host = models.SmallIntegerField(max_length=200, null=True)
+    pos_active = models.SmallIntegerField(max_length=200, null=True)
+    status = models.SmallIntegerField(max_length=200, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now_add=True, null=True)
 
     class Meta:
         # app_label = 'home'
-        db_table = 'hc_shop'
+        db_table = "hc_shop"
+
     def __str__(self):
         return self.name
 
+
+class Users_of_shop(models.Model):
+    cid_master_shop = models.CharField(max_length=100, null=True)
+    email = models.CharField(max_length=100, null=True)
+    avatar = models.CharField(max_length=100, null=True)
+    cid_user = models.CharField(max_length=100, null=True)
+    phone = models.CharField(max_length=100, null=True)
+    cid_shop = models.CharField(max_length=100, null=True)
+    prefix = models.CharField(max_length=100, null=True)
+    role = models.CharField(max_length=100, null=True)
+    is_host = models.CharField(max_length=100, null=True)
+    show_rank = models.CharField(max_length=100, null=True)
+    status = models.CharField(max_length=100, null=True)
+    nick_name = models.CharField(max_length=100, null=True)
+    orderby_staff = models.CharField(max_length=100, null=True)
+    orderby_host = models.CharField(max_length=100, null=True)
+    orderby_manager = models.CharField(max_length=100, null=True)
+    updated_at = models.DateTimeField(auto_now_add=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+
+    class Meta:
+        # app_label = 'home'
+        db_table = "hc_users_of_shop"
+
+    def __str__(self):
+        return self.cid_user
+
+
+class Role_login(models.Model):
+    user_id = models.CharField(max_length=100, null=False)
+    role = models.CharField(max_length=200, null=True)
+    status = models.CharField(max_length=100, null=False)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now_add=True, null=True)
+
+    class Meta:
+        # app_label = 'home'
+        db_table = "hc_role_login"
+
+    def __str__(self):
+        return self.role
+
+
+class Users(models.Model):
+    name = models.CharField(max_length=100, null=True)
+    email = models.CharField(max_length=100, null=True)
+    user_name = models.CharField(max_length=100, null=True)
+    nick_name = models.CharField(max_length=100, null=True)
+    avatar = models.CharField(max_length=100, null=True)
+    identity_card = models.CharField(max_length=100, null=True)
+    banner = models.CharField(max_length=100, null=True)
+    password = models.CharField(max_length=100, null=True)
+    password_pos = models.CharField(max_length=100, null=True)
+    phone = models.CharField(max_length=100, null=True)
+    line = models.CharField(max_length=100, null=True)
+    instagram = models.CharField(max_length=100, null=True)
+    youtube = models.CharField(max_length=100, null=True)
+    twitter = models.CharField(max_length=100, null=True)
+    line_blog = models.CharField(max_length=100, null=True)
+    address = models.CharField(max_length=100, null=True)
+    height = models.CharField(max_length=100, null=True)
+    blood_group = models.CharField(max_length=100, null=True)
+    zodiac = models.CharField(max_length=100, null=True)
+    birthday = models.CharField(max_length=100, null=True)
+    description = models.CharField(max_length=100, null=True)
+    cid_location = models.CharField(max_length=100, null=True)
+    cid_location_child = models.CharField(max_length=100, null=True)
+    role = models.CharField(max_length=100, null=True)
+    role2 = models.CharField(max_length=100, null=True)
+    accessed_count = models.CharField(max_length=100, null=True)
+    gift_count = models.CharField(max_length=100, null=True)
+    favorite_list = models.CharField(max_length=100, null=True)
+    book_list = models.CharField(max_length=100, null=True)
+    cid_position = models.CharField(max_length=100, null=True)
+    cid_shop = models.CharField(max_length=100, null=True)
+    rank_in_shop = models.CharField(max_length=100, null=True)
+    notification_token = models.CharField(max_length=100, null=True)
+    status = models.CharField(max_length=100, null=True)
+    active = models.CharField(max_length=100, null=True)
+    master_id = models.CharField(max_length=100, null=True)
+    lock_code = models.CharField(max_length=100, null=True)
+    check_login = models.CharField(max_length=100, null=True)
+    shop_created = models.CharField(max_length=100, null=True)
+    email_verified_at = models.CharField(max_length=100, null=True)
+    remember_token = models.CharField(max_length=100, null=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now_add=True, null=True)
+
+    class Meta:
+        # app_label = 'home'
+        db_table = "users"
+
+    def __str__(self):
+        return self.name
