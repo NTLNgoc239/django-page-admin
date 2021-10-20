@@ -47,7 +47,7 @@
 								<td>{{shop.created_at|date:"Y-m-d H:m:s"}}</td>
 								<td>{{shop.updated_at|date:"Y-m-d H:m:s"}}</td>
 								<td><a class="btn btn-sm btn-secondary" href="">Detail</a></td>
-								<td><a class="btn btn-sm btn-info" href="">Approve</a></td>
+								<td><a class="btn btn-sm btn-info" href="" idx={{shop.id}}>Approve</a></td>
 								<td><a class="btn btn-sm btn-danger" href="">Disble</a></td>
 							</tr>
 							{% endfor %}
@@ -61,56 +61,3 @@
 	</div>
 {% endblock %}
 
-<style>
-	.row {
-		background-color: #aed7f9;
-		display: flex;
-	}
-
-	h5 {
-		color: rgb(54, 11, 94);
-		font-weight: bold;
-	}
-
-	.button,
-	h5 {
-		display: inline;
-	}
-
-	.button {
-		float: right;
-	}
-
-
-	th {
-		background-color: rgb(184, 161, 199)
-	}
-
-	table {
-		border-collapse: collapse;
-	}
-
-	tr {
-		border: solid;
-		border-width: 1px 0;
-	}
-
-	.navbar-row {
-		background: white;
-		right: 0px;
-	}
-
-	#table-wrapper {
-		position: relative;
-	}
-
-	#table-scroll {
-		height: 600px;
-		overflow: auto;
-		margin-top: 20px;
-	}
-
-	#table-wrapper table {
-		width: 100%;
-	}
-</style>
